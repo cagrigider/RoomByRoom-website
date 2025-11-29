@@ -1,0 +1,136 @@
+.hero {
+    padding: 6rem 0 4rem;
+    text-align: center;
+    position: relative;
+}
+
+.hero::before {
+    content: '🗡️⚔️🛡️';
+    position: absolute;
+    top: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 3rem;
+    opacity: 0.1;
+    letter-spacing: 2rem;
+    animation: float 4s ease-in-out infinite;
+}
+
+.heroContent {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.heroTitle {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    margin-bottom: 1rem;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+    }
+
+    to {
+        text-shadow: 0 0 30px rgba(212, 175, 55, 0.8), 0 0 40px rgba(212, 175, 55, 0.6);
+    }
+}
+
+.heroSubtitle {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.heroDescription {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    color: var(--text-muted);
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+}
+
+.heroCta {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.features {
+    padding: 4rem 0;
+}
+
+.featuresGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.featureIcon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.featureIcon:hover {
+    animation: spin 0.5s ease-in-out;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.ctaSection {
+    padding: 4rem 0;
+}
+
+.ctaCard {
+    text-align: center;
+    padding: 3rem 2rem;
+    background: linear-gradient(135deg, var(--glass-bg) 0%, rgba(139, 92, 246, 0.2) 100%);
+    border: 2px solid var(--mystic-purple);
+}
+
+.ctaCard:hover {
+    box-shadow: var(--shadow-lg), var(--glow-purple);
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 4rem 0 2rem;
+    }
+
+    .heroTitle {
+        font-size: 2rem;
+    }
+
+    .featuresGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .heroCta {
+        flex-direction: column;
+        align-items: center;
+    }
+}
