@@ -1,182 +1,66 @@
-# RoomByRoom Website
+# Tap Dungeon Website
 
-A dungeon-themed Next.js website for the RoomByRoom iOS game, featuring privacy policy, terms of service, AdMob integration, and an admin dashboard.
+Simple static website for Tap Dungeon iOS app with essential legal pages and AdMob verification.
 
-## 🎮 Features
+## 📁 Files
 
-- **Stunning Dungeon Theme**: Medieval fonts, dark color palette, glassmorphism effects, and smooth animations
-- **SEO Optimized**: Complete meta tags, Open Graph, and Twitter Card support
-- **Privacy & Legal Pages**: Comprehensive privacy policy and terms of service
-- **AdMob Integration**: `app-ads.txt` file with publisher ID `pub-9244295681050567`
-- **Admin Dashboard**: Manage AdMob configuration with password protection
-- **Responsive Design**: Works beautifully on mobile, tablet, and desktop
-- **Cloudflare Pages Ready**: Static export optimized for Cloudflare Pages deployment
+- `index.html` - Homepage
+- `privacy.html` - Privacy Policy (required for App Store)
+- `terms.html` - Terms and Conditions (required for App Store)
+- `app-ads.txt` - AdMob verification file (required for AdMob)
+- `style.css` - Styling
+- `.nojekyll` - GitHub Pages configuration
 
-## 🚀 Getting Started
+## 🚀 Deployment to GitHub Pages
 
-### Prerequisites
-
-- Node.js 18+ installed
-- npm or yarn package manager
-
-### Installation
+### Step 1: Push to GitHub
 
 ```bash
-# Navigate to the website directory
-cd website
-
-# Install dependencies
-npm install
-
-# Run development server
-npm run dev
+git add .
+git commit -m "Create simple static website for Tap Dungeon"
+git push origin main
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to view the website.
+### Step 2: Enable GitHub Pages
 
-## 📁 Project Structure
+1. Go to: https://github.com/cagrigider/RoomByRoom-website/settings/pages
+2. Under "Source": Select **Deploy from a branch**
+3. Under "Branch": Select **main** and **/ (root)**
+4. Click **Save**
 
-```
-website/
-├── public/
-│   └── app-ads.txt          # AdMob verification file
-├── src/
-│   ├── app/
-│   │   ├── layout.tsx       # Root layout with SEO
-│   │   ├── page.tsx         # Landing page
-│   │   ├── globals.css      # Dungeon-themed global styles
-│   │   ├── privacy/         # Privacy policy page
-│   │   ├── terms/           # Terms of service page
-│   │   └── admin/           # Admin dashboard
-│   └── components/
-│       ├── Navigation.tsx   # Site navigation
-│       ├── Footer.tsx       # Site footer
-│       └── ui/              # Reusable UI components
-├── next.config.js           # Next.js configuration
-├── package.json             # Dependencies
-└── tsconfig.json            # TypeScript configuration
-```
+### Step 3: Verify (after 2-3 minutes)
 
-## 🔧 Admin Dashboard
+- Homepage: https://cagrigider.github.io/RoomByRoom-website/
+- Privacy: https://cagrigider.github.io/RoomByRoom-website/privacy.html
+- Terms: https://cagrigider.github.io/RoomByRoom-website/terms.html
+- AdMob: https://cagrigider.github.io/RoomByRoom-website/app-ads.txt
 
-Access the admin dashboard at `/admin` with the password: `dungeon2025`
+## 📱 For App Store Connect
 
-Features:
-- Manage AdMob ad unit IDs
-- Export configuration as JSON
-- Save settings to localStorage
+Use these URLs when submitting your app:
 
-**Note**: For production, integrate with Cloudflare KV or a database for persistent storage.
+| Field | URL |
+|-------|-----|
+| Privacy Policy | `https://cagrigider.github.io/RoomByRoom-website/privacy.html` |
+| Terms of Service | `https://cagrigider.github.io/RoomByRoom-website/terms.html` |
+| Support URL | `https://cagrigider.github.io/RoomByRoom-website/` |
 
-## 📦 Build for Production
+## 💰 For AdMob
 
-```bash
-# Build static export
-npm run build
+app-ads.txt URL: `https://cagrigider.github.io/RoomByRoom-website/app-ads.txt`
 
-# The output will be in the 'out' directory
-```
+Publisher ID: `pub-9244295681050567`
 
-## 🌐 Deploy to Cloudflare Pages
+## ✅ What's Included
 
-### Option 1: Git Integration (Recommended)
+✅ Privacy Policy with AdMob disclosure  
+✅ Terms and Conditions  
+✅ app-ads.txt with your publisher ID  
+✅ Clean, professional design  
+✅ Mobile responsive  
+✅ No build process required  
+✅ Works perfectly on GitHub Pages  
 
-1. Push your code to GitHub
-2. Go to [Cloudflare Pages](https://pages.cloudflare.com/)
-3. Click "Create a project"
-4. Connect your GitHub repository
-5. Configure build settings:
-   - **Build command**: `npm run build`
-   - **Build output directory**: `out`
-   - **Root directory**: `website`
-6. Click "Save and Deploy"
+---
 
-### Option 2: Direct Upload
-
-```bash
-# Build the site
-npm run build
-
-# Install Wrangler CLI
-npm install -g wrangler
-
-# Login to Cloudflare
-wrangler login
-
-# Deploy
-wrangler pages deploy out --project-name=roombyroom
-```
-
-## 🎨 Customization
-
-### Update AdMob Publisher ID
-
-Already configured with your publisher ID: `pub-9244295681050567`
-
-To update, edit `/public/app-ads.txt`
-
-### Change Theme Colors
-
-Edit CSS variables in `/src/app/globals.css`:
-
-```css
-:root {
-  --stone-dark: #1a1612;
-  --gold: #d4af37;
-  --mystic-purple: #8b5cf6;
-  /* ... and more */
-}
-```
-
-### Update App Store Link
-
-Replace `#` placeholders in components with your actual App Store URL:
-
-```tsx
-<Button href="YOUR_APP_STORE_URL">
-  Download on App Store
-</Button>
-```
-
-## 📝 Important Files
-
-- **app-ads.txt**: Located at `/public/app-ads.txt` - Required by AdMob, accessible at `yourwebsite.com/app-ads.txt`
-- **Privacy Policy**: `/src/app/privacy/page.tsx` - Update contact email
-- **Terms of Service**: `/src/app/terms/page.tsx` - Update jurisdiction and contact details
-
-## 🔒 Admin Password
-
-Default password: `dungeon2025`
-
-To change, edit the password check in `/src/app/admin/page.tsx`:
-
-```tsx
-if (password === 'YOUR_NEW_PASSWORD') {
-  setIsAuthenticated(true)
-}
-```
-
-For production, implement proper authentication with Cloudflare Workers.
-
-## 📱 Testing
-
-- **Development**: `npm run dev` - Test locally
-- **Build**: `npm run build` - Verify production build
-- **Type Check**: `npm run type-check` - Check TypeScript errors
-- **Lint**: `npm run lint` - Check code quality
-
-## 🐛 Troubleshooting
-
-**Build fails**: Ensure Node.js 18+ is installed
-**app-ads.txt not accessible**: Verify file is in `/public/` directory
-**Styles not loading**: Clear browser cache and rebuild
-
-## 📄 License
-
-Copyright © 2025 RoomByRoom. All rights reserved.
-
-## 📧 Support
-
-For questions or support:
-- Email: support@roombyroom.com
-- Privacy: privacy@roombyroom.com
+Copyright © 2025 Tap Dungeon. All rights reserved.
