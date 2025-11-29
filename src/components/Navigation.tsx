@@ -15,7 +15,6 @@ export default function Navigation() {
                         <Link href="/" className={styles.navLink}>Home</Link>
                         <Link href="/privacy" className={styles.navLink}>Privacy</Link>
                         <Link href="/terms" className={styles.navLink}>Terms</Link>
-                        <Link href="/admin" className={styles.navLink}>Admin</Link>
                     </div>
                 </div>
             </div>
